@@ -143,4 +143,15 @@ public class Number implements Serializable {
     public String toString() {
         return "Number{number=" + number + '}';
     }
+
+    /** @see java.lang.Object#equals(java.lang.Object) */ 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Number number1 = (Number) o;
+
+        return getNumber() != null ? getNumber().equals(number1.getNumber()) : number1.getNumber() == null;
+    }
 }
