@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class NumberTest {
 
-    private Number origin;
-    private Number second;
-    private Number expect;
+    private static Number origin;
+    private static Number second;
+    private static Number expect;
 
     /** Initialize the three {@link Number} which will be used */
     @BeforeAll
