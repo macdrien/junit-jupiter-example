@@ -89,8 +89,43 @@ class NumberTest {
                 () -> origin.subtract(null));
     }
 
+    /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
     @Test
-    void testMultiply() {
+    void testMultiplyWhichHasToSuccess() {
+        Number origin = new Number(2),
+                toMultiply = new Number(5),
+                expect = new Number(10);
+
+        assertEquals(expect, origin.multiply(toMultiply));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
+    @Test
+    void testMultiplyWithNullNumberInBaseObject() {
+        Number origin = new Number(),
+                toMultiply = new Number(5),
+                expect = new Number(5);
+
+        assertEquals(expect, origin.multiply(toMultiply));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
+    @Test
+    void testMultiplyWithNullNumberInGivenObject() {
+        Number origin = new Number(5),
+                toMultiply = new Number(),
+                expect = new Number(5);
+
+        assertEquals(expect, origin.multiply(toMultiply));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
+    @Test
+    void testMultiplyWithNullArgument() {
+        Number origin = new Number(5);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> origin.multiply(null));
     }
 
     @Test
