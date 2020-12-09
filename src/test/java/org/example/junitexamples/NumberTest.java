@@ -160,6 +160,7 @@ class NumberTest {
                 () -> origin.divide(second));
     }
 
+    /** Unit test for {@link org.example.junitexamples.Number#getNumber()} */
     @Test
     void testGetNumber() {
         Integer integer = 1;
@@ -167,10 +168,24 @@ class NumberTest {
         assertEquals(integer, number.getNumber());
     }
 
+    /** Unit test for {@link org.example.junitexamples.Number#setNumber(Integer)}  */
     @Test
     void testSetNumber() {
         Integer integer = 1;
         origin.setNumber(integer);
         assertEquals(integer, origin.getNumber());
+    }
+
+    /** Unit test for {@link org.example.junitexamples.Number#toString()} */
+    @Test
+    void testToString() {
+        assertEquals("Number{number=6}", origin.toString());
+    }
+
+    /** Unit test for {@link org.example.junitexamples.Number#toString()} */
+    @Test
+    void testToStringWithNullNumber() {
+        origin.setNumber(null);
+        assertEquals("Number{number=null}", origin.toString());
     }
 }
