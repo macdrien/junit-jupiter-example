@@ -48,13 +48,10 @@ public class Number implements Serializable {
      * @throws IllegalArgumentException If toAdd is null.
      */
     public Number add(Number toAdd) throws IllegalArgumentException {
-        if (this.number == null)
-            number = 0;
-
         if (toAdd == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number += toAdd.getNumber() != null ? toAdd.getNumber() : 0;
+        this.number = toAdd.getNumber() != null ? toAdd.getNumber() : 0;
 
         return this;
     }
@@ -68,13 +65,10 @@ public class Number implements Serializable {
      * @throws IllegalArgumentException If toSubtract is null.
      */
     public Number subtract(Number toSubtract) throws IllegalArgumentException {
-        if (this.number == null)
-            number = 0;
-
         if (toSubtract == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number -= toSubtract.getNumber() != null ? toSubtract.getNumber() : 0;
+        this.number = - (toSubtract.getNumber() != null ? toSubtract.getNumber() : 0);
 
         return this;
     }
@@ -88,13 +82,10 @@ public class Number implements Serializable {
      * @throws IllegalArgumentException If toMultiply is null.
      */
     public Number multiply(Number toMultiply) throws IllegalArgumentException {
-        if (this.number == null)
-            number = 1;
-
         if (toMultiply == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number *= toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
+        this.number = toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
 
         return this;
     }
@@ -108,16 +99,16 @@ public class Number implements Serializable {
      * @throws IllegalArgumentException If divider is null or if divier.number is equals to 0.
      */
     public Number divide(Number divider) throws IllegalArgumentException {
-        if (this.number == null)
-            number = 1;
-
         if (divider == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
         if (divider.getNumber() == 0)
             throw new IllegalArgumentException("Error : The given number has to be different from 0.");
 
-        this.number *= divider.getNumber() != null ? divider.getNumber() : 1;
+        if (this.number == null)
+            this.number = 1;
+        else
+            this.number *= divider.getNumber() != null ? divider.getNumber() : 1;
 
         return this;
     }
