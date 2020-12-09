@@ -3,7 +3,7 @@ package org.example.junitexamples;
 import java.io.Serializable;
 
 /**
- * A class which represents an {@link Integer}.
+ * A class which represents an {@link Integer}.<br/>
  * This number can be:
  *
  * <ul>
@@ -37,6 +37,26 @@ public class Number implements Serializable {
      */
     public Number(Integer number) {
         this.number = number;
+    }
+
+    /**
+     * Add a given {@link Number} to the current {@link Number}.
+     *
+     * @param toAdd The number to add. It must be not null.<br/>
+     *              If toAdd.number is null, the function will add 0.
+     * @return The current instance after the addition.
+     * @throws IllegalArgumentException If toAdd is null.
+     */
+    public Number add(Number toAdd) throws IllegalArgumentException {
+        if (this.number == null)
+            number = 0;
+
+        if (toAdd == null)
+            throw new IllegalArgumentException("Error : The given number has to be not null.");
+
+        this.number += toAdd.getNumber() != null ? toAdd.getNumber() : 0;
+
+        return this;
     }
 
     /**
