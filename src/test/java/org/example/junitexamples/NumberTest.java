@@ -128,8 +128,53 @@ class NumberTest {
                 () -> origin.multiply(null));
     }
 
+    /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
-    void testDivide() {
+    void testDivideWhichHasToSuccess() {
+        Number origin = new Number(6),
+                divider = new Number(2),
+                expect = new Number(3);
+
+        assertEquals(expect, origin.divide(divider));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
+    @Test
+    void testDivideWithNullNumberInBaseObject() {
+        Number origin = new Number(),
+                divider = new Number(2),
+                expect = new Number(1);
+
+        assertEquals(expect, origin.divide(divider));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
+    @Test
+    void testDivideWithNullNumberInTheGivenObject() {
+        Number origin = new Number(6),
+                divider = new Number(),
+                expect = new Number(6);
+
+        assertEquals(expect, origin.divide(divider));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
+    @Test
+    void testDivideWithNullArgument() {
+        Number origin = new Number(6);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> origin.divide(null));
+    }
+
+    /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
+    @Test
+    void testDivideWithDividerAt0() {
+        Number origin = new Number(6),
+                divider = new Number(0);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> origin.divide(divider));
     }
 
     @Test
