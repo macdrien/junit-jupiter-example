@@ -117,7 +117,7 @@ public class Number implements Serializable {
         if (this.number == null)
             this.number = 1;
         else
-            this.number *= divider.getNumber() != null ? divider.getNumber() : 1;
+            this.number /= divider.getNumber() != null ? divider.getNumber() : 1;
 
         return this;
     }
