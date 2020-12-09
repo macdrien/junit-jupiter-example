@@ -60,6 +60,26 @@ public class Number implements Serializable {
     }
 
     /**
+     * Subtract a given {@link Number} to the current {@link Number}.
+     *
+     * @param toSubtract The number to subtract. It must be not null.<br/>
+     *              If toSubtract.number is null, the function will subtract 0.
+     * @return The current instance after the subtraction.
+     * @throws IllegalArgumentException If toSubtract is null.
+     */
+    public Number subtract(Number toSubtract) throws IllegalArgumentException {
+        if (this.number == null)
+            number = 0;
+
+        if (toSubtract == null)
+            throw new IllegalArgumentException("Error : The given number has to be not null.");
+
+        this.number -= toSubtract.getNumber() != null ? toSubtract.getNumber() : 0;
+
+        return this;
+    }
+
+    /**
      * @return The value number
      */
     public Integer getNumber() {
