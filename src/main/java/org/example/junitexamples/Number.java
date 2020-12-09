@@ -80,6 +80,49 @@ public class Number implements Serializable {
     }
 
     /**
+     * Multiply a given {@link Number} to the current {@link Number}.
+     *
+     * @param toMultiply The {@link Number} to multiply.<br/>
+     *                   If toMultiply.number is null, the function will multiply this.number by 1.
+     * @return The current instance after the multiplication.
+     * @throws IllegalArgumentException If toMultiply is null.
+     */
+    public Number multiply(Number toMultiply) throws IllegalArgumentException {
+        if (this.number == null)
+            number = 1;
+
+        if (toMultiply == null)
+            throw new IllegalArgumentException("Error : The given number has to be not null.");
+
+        this.number *= toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
+
+        return this;
+    }
+
+    /**
+     * Divide the current {@link Number} by the given one.
+     *
+     * @param divider The {@link Number} to divide.
+     *                If divider.number is null, the function will divide this.number by 1.
+     * @return The current instance after the division.
+     * @throws IllegalArgumentException If divider is null or if divier.number is equals to 0.
+     */
+    public Number divide(Number divider) throws IllegalArgumentException {
+        if (this.number == null)
+            number = 1;
+
+        if (divider == null)
+            throw new IllegalArgumentException("Error : The given number has to be not null.");
+
+        if (divider.getNumber() == 0)
+            throw new IllegalArgumentException("Error : The given number has to be different from 0.");
+
+        this.number *= divider.getNumber() != null ? divider.getNumber() : 1;
+
+        return this;
+    }
+
+    /**
      * @return The value number
      */
     public Integer getNumber() {
