@@ -50,8 +50,43 @@ class NumberTest {
                 () -> origin.add(null));
     }
 
+    /** Unit test for {@link Number#subtract(Number)} */
     @Test
-    void testSubtract() {
+    void testSubtractWhichHasToSuccess() {
+        Number origin = new Number(5),
+                toSubtract = new Number(4),
+                expect = new Number(1);
+
+        assertEquals(expect, origin.subtract(toSubtract));
+    }
+
+    /** Unit test for {@link Number#subtract(Number)} */
+    @Test
+    void testSubtractWithNullNumberInBaseObject() {
+        Number origin = new Number(),
+                toSubtract = new Number(4),
+                expect = new Number(-4);
+
+        assertEquals(expect, origin.subtract(toSubtract));
+    }
+
+    /** Unit test for {@link Number#subtract(Number)} */
+    @Test
+    void testSubtractWithNullNumberInToSubtract() {
+        Number origin = new Number(5),
+                toSubtract = new Number(),
+                expect = new Number(5);
+
+        assertEquals(expect, origin.subtract(toSubtract));
+    }
+
+    /** Unit test for {@link Number#subtract(Number)} */
+    @Test
+    void testSubtractWithNullArgument() {
+        Number origin = new Number(5);
+
+        assertThrows(IllegalArgumentException.class,
+                () -> origin.subtract(null));
     }
 
     @Test
