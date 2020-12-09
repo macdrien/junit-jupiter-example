@@ -179,13 +179,16 @@ class NumberTest {
 
     @Test
     void testGetNumber() {
+        Integer integer = 1;
+        Number number = new Number(integer);
+        assertEquals(integer, number.getNumber());
     }
 
     @Test
     void testSetNumber() {
-    }
-
-    @Test
-    void testToString() {
+        Integer integer = 1;
+        Number number = new Number();
+        number.setNumber(integer);
+        assertEquals(integer, number.getNumber());
     }
 }
