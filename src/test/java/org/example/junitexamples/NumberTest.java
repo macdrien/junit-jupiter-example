@@ -1,5 +1,7 @@
 package org.example.junitexamples;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,41 +13,51 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class NumberTest {
 
+    private Number origin;
+    private Number second;
+    private Number expect;
+
+    /** Initialize the three {@link Number} which will be used */
+    @BeforeAll
+    static void init() {
+        origin = new Number();
+        second = new Number();
+        expect = new Number();
+    }
+
+    /** Setup Number for the next test */
+    @BeforeEach
+    void setup() {
+        origin.setNumber(6);
+        second.setNumber(2);
+    }
+
     /** Unit test for {@link Number#add(Number)} */
     @Test
     void testAddWhichHasToSuccess() {
-        Number origin = new Number(5),
-                toAdd = new Number(4),
-               expect = new Number(9);
-
-        assertEquals(expect, origin.add(toAdd));
+        expect = new Number(8);
+        assertEquals(expect, origin.add(second));
     }
 
     /** Unit test for {@link Number#add(Number)} */
     @Test
     void testAddWithNullNumberInBaseObject() {
-        Number origin = new Number(),
-                toAdd = new Number(4),
-                expect = new Number(4);
-
-        assertEquals(expect, origin.add(toAdd));
+        origin.setNumber(null);
+        expect = new Number(2);
+        assertEquals(expect, origin.add(second));
     }
 
     /** Unit test for {@link Number#add(Number)} */
     @Test
     void testAddWithNullNumberInToAdd() {
-        Number origin = new Number(5),
-                toAdd = new Number(),
-                expect = new Number(5);
-
-        assertEquals(expect, origin.add(toAdd));
+        second.setNumber(null);
+        expect.setNumber(6);
+        assertEquals(expect, origin.add(second));
     }
 
     /** Unit test for {@link Number#add(Number)} */
     @Test
     void testAddWithNullArgument() {
-        Number origin = new Number(5);
-
         assertThrows(IllegalArgumentException.class,
                 () -> origin.add(null));
     }
@@ -53,38 +65,29 @@ class NumberTest {
     /** Unit test for {@link Number#subtract(Number)} */
     @Test
     void testSubtractWhichHasToSuccess() {
-        Number origin = new Number(5),
-                toSubtract = new Number(4),
-                expect = new Number(1);
-
-        assertEquals(expect, origin.subtract(toSubtract));
+        expect.setNumber(4);
+        assertEquals(expect, origin.subtract(second));
     }
 
     /** Unit test for {@link Number#subtract(Number)} */
     @Test
     void testSubtractWithNullNumberInBaseObject() {
-        Number origin = new Number(),
-                toSubtract = new Number(4),
-                expect = new Number(-4);
-
-        assertEquals(expect, origin.subtract(toSubtract));
+        origin.setNumber(null);
+        expect.setNumber(-2);
+        assertEquals(expect, origin.subtract(second));
     }
 
     /** Unit test for {@link Number#subtract(Number)} */
     @Test
     void testSubtractWithNullNumberInToSubtract() {
-        Number origin = new Number(5),
-                toSubtract = new Number(),
-                expect = new Number(5);
-
-        assertEquals(expect, origin.subtract(toSubtract));
+        second.setNumber(null);
+        expect = new Number(6);
+        assertEquals(expect, origin.subtract(second));
     }
 
     /** Unit test for {@link Number#subtract(Number)} */
     @Test
     void testSubtractWithNullArgument() {
-        Number origin = new Number(5);
-
         assertThrows(IllegalArgumentException.class,
                 () -> origin.subtract(null));
     }
@@ -92,38 +95,29 @@ class NumberTest {
     /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
     @Test
     void testMultiplyWhichHasToSuccess() {
-        Number origin = new Number(2),
-                toMultiply = new Number(5),
-                expect = new Number(10);
-
-        assertEquals(expect, origin.multiply(toMultiply));
+        expect.setNumber(12);
+        assertEquals(expect, origin.multiply(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
     @Test
     void testMultiplyWithNullNumberInBaseObject() {
-        Number origin = new Number(),
-                toMultiply = new Number(5),
-                expect = new Number(5);
-
-        assertEquals(expect, origin.multiply(toMultiply));
+        origin.setNumber(null);
+        expect.setNumber(2);
+        assertEquals(expect, origin.multiply(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
     @Test
     void testMultiplyWithNullNumberInGivenObject() {
-        Number origin = new Number(5),
-                toMultiply = new Number(),
-                expect = new Number(5);
-
-        assertEquals(expect, origin.multiply(toMultiply));
+        second.setNumber(null);
+        expect.setNumber(6);
+        assertEquals(expect, origin.multiply(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#multiply(org.example.junitexamples.Number)} */
     @Test
     void testMultiplyWithNullArgument() {
-        Number origin = new Number(5);
-
         assertThrows(IllegalArgumentException.class,
                 () -> origin.multiply(null));
     }
@@ -131,38 +125,29 @@ class NumberTest {
     /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
     void testDivideWhichHasToSuccess() {
-        Number origin = new Number(6),
-                divider = new Number(2),
-                expect = new Number(3);
-
-        assertEquals(expect, origin.divide(divider));
+        expect.setNumber(3);
+        assertEquals(expect, origin.divide(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
     void testDivideWithNullNumberInBaseObject() {
-        Number origin = new Number(),
-                divider = new Number(2),
-                expect = new Number(1);
-
-        assertEquals(expect, origin.divide(divider));
+        origin.setNumber(null);
+        expect.setNumber(1);
+        assertEquals(expect, origin.divide(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
     void testDivideWithNullNumberInTheGivenObject() {
-        Number origin = new Number(6),
-                divider = new Number(),
-                expect = new Number(6);
-
-        assertEquals(expect, origin.divide(divider));
+        second.setNumber(null);
+        expect.setNumber(6);
+        assertEquals(expect, origin.divide(second));
     }
 
     /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
     void testDivideWithNullArgument() {
-        Number origin = new Number(6);
-
         assertThrows(IllegalArgumentException.class,
                 () -> origin.divide(null));
     }
@@ -170,11 +155,9 @@ class NumberTest {
     /** Unit test of {@link org.example.junitexamples.Number#divide(org.example.junitexamples.Number)} */
     @Test
     void testDivideWithDividerAt0() {
-        Number origin = new Number(6),
-                divider = new Number(0);
-
+        second.setNumber(0);
         assertThrows(IllegalArgumentException.class,
-                () -> origin.divide(divider));
+                () -> origin.divide(second));
     }
 
     @Test
@@ -187,8 +170,7 @@ class NumberTest {
     @Test
     void testSetNumber() {
         Integer integer = 1;
-        Number number = new Number();
-        number.setNumber(integer);
-        assertEquals(integer, number.getNumber());
+        origin.setNumber(integer);
+        assertEquals(integer, origin.getNumber());
     }
 }
