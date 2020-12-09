@@ -111,7 +111,7 @@ public class Number implements Serializable {
         if (divider == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        if (divider.getNumber() == 0)
+        if (divider.getNumber() != null && divider.getNumber() == 0)
             throw new IllegalArgumentException("Error : The given number has to be different from 0.");
 
         if (this.number == null)
