@@ -51,7 +51,10 @@ public class Number implements Serializable {
         if (toAdd == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number = toAdd.getNumber() != null ? toAdd.getNumber() : 0;
+        if (this.number == null)
+            this.number = toAdd.getNumber() != null ? toAdd.getNumber() : 0;
+        else
+            this.number += toAdd.getNumber() != null ? toAdd.getNumber() : 0;
 
         return this;
     }
@@ -68,7 +71,10 @@ public class Number implements Serializable {
         if (toSubtract == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number = - (toSubtract.getNumber() != null ? toSubtract.getNumber() : 0);
+        if (this.number == null)
+            this.number = - (toSubtract.getNumber() != null ? toSubtract.getNumber() : 0);
+        else
+            this.number -= (toSubtract.getNumber() != null ? toSubtract.getNumber() : 0);
 
         return this;
     }
@@ -85,7 +91,10 @@ public class Number implements Serializable {
         if (toMultiply == null)
             throw new IllegalArgumentException("Error : The given number has to be not null.");
 
-        this.number = toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
+        if (this.number == null)
+            this.number = toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
+        else
+            this.number *= toMultiply.getNumber() != null ? toMultiply.getNumber() : 1;
 
         return this;
     }
