@@ -16,13 +16,13 @@
         - [1.4.1.1.2. Subtract](#14112-subtract)
         - [1.4.1.1.3. Multiply](#14113-multiply)
         - [1.4.1.1.4. Divide](#14114-divide)
-  - [1.5. Tests (TODO)](#15-tests-todo)
+  - [1.5. Tests](#15-tests)
     - [1.5.1. Assertions methods](#151-assertions-methods)
       - [1.5.1.1. assertEquals](#1511-assertequals)
       - [1.5.1.2. assertTrue and assertFalse](#1512-asserttrue-and-assertfalse)
       - [1.5.1.3. assertNull and assertNotNull](#1513-assertnull-and-assertnotnull)
       - [1.5.1.4. assertThrows](#1514-assertthrows)
-    - [1.5.2. Annotations (TODO)](#152-annotations-todo)
+    - [1.5.2. Annotations](#152-annotations)
       - [1.5.2.1. Test](#1521-test)
       - [1.5.2.2. BeforeAll](#1522-beforeall)
       - [1.5.2.3. BeforeEach](#1523-beforeeach)
@@ -165,7 +165,7 @@ Divide() can throw an IllegalArgumentException exception if divider is null or i
 
 ---
 
-## 1.5. Tests (TODO)
+## 1.5. Tests
 
 This section will describes the JUnit5 tools (methods and annotations mainly) which I used in this project.
 
@@ -235,7 +235,7 @@ assertThrows(IllegalArgumentException.class,
 
 Naturally, this method will success if the exception is thrown. It will fail in another case.
 
-### 1.5.2. Annotations (TODO)
+### 1.5.2. Annotations
 
 #### 1.5.2.1. Test
 
