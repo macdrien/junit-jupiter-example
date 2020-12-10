@@ -16,7 +16,18 @@
         - [1.4.1.1.2. Subtract](#14112-subtract)
         - [1.4.1.1.3. Multiply](#14113-multiply)
         - [1.4.1.1.4. Divide](#14114-divide)
-  - [1.5. Tests](#15-tests)
+  - [1.5. Tests (TODO)](#15-tests-todo)
+    - [1.5.1. Assertions methods](#151-assertions-methods)
+      - [1.5.1.1. assertEquals](#1511-assertequals)
+      - [1.5.1.2. assertTrue and assertFalse](#1512-asserttrue-and-assertfalse)
+      - [1.5.1.3. assertNull and assertNotNull](#1513-assertnull-and-assertnotnull)
+      - [1.5.1.4. assertThrows](#1514-assertthrows)
+    - [1.5.2. Annotations (TODO)](#152-annotations-todo)
+      - [1.5.2.1. Test (TODO)](#1521-test-todo)
+      - [1.5.2.2. BeforeAll (TODO)](#1522-beforeall-todo)
+      - [1.5.2.3. BeforeEach (TODO)](#1523-beforeeach-todo)
+      - [1.5.2.4. AfterAll (TODO)](#1524-afterall-todo)
+      - [1.5.2.5. AfterEach (TODO)](#1525-aftereach-todo)
   - [1.6. External resources](#16-external-resources)
 
 This project is a project which helps me to pratice globally JUnit5 Jupiter.  
@@ -120,7 +131,7 @@ The method can throw an IllegalArgumentException exception if toAdd is null.
 
 Subtract a given Number to the current Number.
 
-The argument toSubtract is the number to subtract. It must be not null.  
+The argument `toSubtract` is the number to subtract. It must be not null.  
 If toSubtract.number is null, the function will subtract 0 to the current one.  
 If this.number is null, the function will set it to -(toSubtract.number).
 
@@ -132,7 +143,7 @@ It can throw an IllegalArgumentException exception if toSubtract is null.
 
 Multiply a given Number to the current Number.
 
-The argument toMultiply is the Number to multiply.  
+The argument `toMultiply` is the Number to multiply.  
 If toMultiply.number is null, the function will multiply this.number by 1.  
 If this.number is null, the function will set it to toMultiply.number
 
@@ -144,7 +155,7 @@ The method will throw an IllegalArgumentException exception if toMultiply is nul
 
 Divide the current Number by the given one.
 
-The argument divider is the Number to use to divide the current one.  
+The argument `divider` is the Number to use to divide the current one.  
 If divider.number is null, the function will divide this.number by 1.  
 If this.number is null, the function will set it to 1.
 
@@ -154,7 +165,87 @@ Divide() can throw an IllegalArgumentException exception if divider is null or i
 
 ---
 
-## 1.5. Tests
+## 1.5. Tests (TODO)
+
+This section will describes the JUnit5 tools (methods and annotations mainly) which I used in this project.
+
+### 1.5.1. Assertions methods
+
+Assertions methods are, with the [Test annotation](#1521-test-todo), the main tools we use in tests. That is why I begin with them.
+
+Assertions are a gather of methods which will return a test state in your test methods.  
+If an assertion fail, the method will stop itself and return a fail statement.  
+If an assert success, the method will continue normally. If the process go to the end of a test method without fail any assertion, then the method will return a success statement.
+
+There is a lot of assertions methods, you can find them in the class `org.junit.jupiter.api.Assertions`. It can be usefull to import these methods with a static import like this:  
+
+`import static org.junit.jupiter.api.Assertions.*;`
+
+In most of he following methods can take, optionnally, a last argument. This argument is a message which will be prompted if the assertion fails.
+
+The main assertions methods I use daily are the following one:
+
+#### 1.5.1.1. assertEquals
+
+This assertion need two arguments. The first one is the result you expect. The second one is the result that you want to test.
+
+This is an example from NumberTest#testAddWhichHasToSuccess():
+
+```java
+assertEquals(expect, origin.add(second));
+```
+
+This method will do `expect.equals(toTest)`. If this equals method is not implemented on the object you give, assertEquals will use the double equals operator (`==`) on the object references.
+
+#### 1.5.1.2. assertTrue and assertFalse
+
+This two methods need only one argument. This argument must be a boolean condition to test. The assertion will success if the condition is true for the first method, or if it is false for the second one.
+
+```java
+assertTrue(5 + 3 == 8);  // Success
+assertFalse(5 + 5 == 8); // Success
+assertTrue(5 + 5 == 8);  // Fail
+assertFalse(5 + 3 == 8); // Fail
+```
+
+#### 1.5.1.3. assertNull and assertNotNull
+
+AssertNull and assertNotNull need one argument which is the variable or a method result to test.  
+The first one will success if the argument is null, the second one will success if the arguement is not null.
+
+```java
+assertNull(null);     // Success
+assertNotNull(5);     // Success
+assertNull(5);        // Fail
+assertNotNull(null);  // Fail
+```
+
+#### 1.5.1.4. assertThrows
+
+AssertThrows, as assertEquals, needs two arguments.  
+The first argument is the exception class you attempt to throw.  
+The second argument is a lambda expression which should throw the exception.
+
+Example from NumberTest#testAddWithNullArgument():
+
+```java
+assertThrows(IllegalArgumentException.class,
+             () -> origin.add(null));
+```
+
+Naturally, this method will success if the exception is thrown. It will fail in another case.
+
+### 1.5.2. Annotations (TODO)
+
+#### 1.5.2.1. Test (TODO)
+
+#### 1.5.2.2. BeforeAll (TODO)
+
+#### 1.5.2.3. BeforeEach (TODO)
+
+#### 1.5.2.4. AfterAll (TODO)
+
+#### 1.5.2.5. AfterEach (TODO)
 
 ---
 
