@@ -1,5 +1,10 @@
 # 1. Example of JUnit Jupiter
 
+*Authors*:
+
+- Adrien Bouyssou ([macdrien](https://github.com/macdrien))
+- Vincent Galinier ([vgalin](https://github.com/vgalin))
+
 ## 1.1. Table of contents
 
 - [1. Example of JUnit Jupiter](#1-example-of-junit-jupiter)
