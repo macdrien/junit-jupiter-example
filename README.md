@@ -23,11 +23,11 @@
       - [1.5.1.3. assertNull and assertNotNull](#1513-assertnull-and-assertnotnull)
       - [1.5.1.4. assertThrows](#1514-assertthrows)
     - [1.5.2. Annotations (TODO)](#152-annotations-todo)
-      - [1.5.2.1. Test (TODO)](#1521-test-todo)
-      - [1.5.2.2. BeforeAll (TODO)](#1522-beforeall-todo)
-      - [1.5.2.3. BeforeEach (TODO)](#1523-beforeeach-todo)
-      - [1.5.2.4. AfterAll (TODO)](#1524-afterall-todo)
-      - [1.5.2.5. AfterEach (TODO)](#1525-aftereach-todo)
+      - [1.5.2.1. Test](#1521-test)
+      - [1.5.2.2. BeforeAll](#1522-beforeall)
+      - [1.5.2.3. BeforeEach](#1523-beforeeach)
+      - [1.5.2.4. AfterAll](#1524-afterall)
+      - [1.5.2.5. AfterEach](#1525-aftereach)
   - [1.6. External resources](#16-external-resources)
 
 This project is a project which helps me to pratice globally JUnit5 Jupiter.  
@@ -237,15 +237,82 @@ Naturally, this method will success if the exception is thrown. It will fail in 
 
 ### 1.5.2. Annotations (TODO)
 
-#### 1.5.2.1. Test (TODO)
+#### 1.5.2.1. Test
 
-#### 1.5.2.2. BeforeAll (TODO)
+This annotation is the most common. Placed on a function, it marks it as a test function.  
+When you run tests, JUnit5 will search all methods which have this annotation and run them.
 
-#### 1.5.2.3. BeforeEach (TODO)
+*Note*: A Test method sould not return anything. Assertions in the methods will do the job.
 
-#### 1.5.2.4. AfterAll (TODO)
+Example:
 
-#### 1.5.2.5. AfterEach (TODO)
+```java
+@Test
+void testAddWithNullArgument() {
+    assertThrows(IllegalArgumentException.class,
+                () -> origin.add(null));
+}
+```
+
+#### 1.5.2.2. BeforeAll
+
+BeforeAll must be placed on a method. The marked method will be run once before all other tests method in the current class.
+
+It is a usefull annotation to prepare a global context for your tests.
+
+*Note*: A BeforeAll method sould be static and without return.
+
+```java
+@BeforeAll
+static void init() {
+    origin = new Number();
+    second = new Number();
+    expect = new Number();
+}
+```
+
+#### 1.5.2.3. BeforeEach
+
+As BeforeAll, this annotation will mark a method as being executed before tests in the current class. But here, the BeforeEach method will be run before each new test.
+
+It can be usefull to reinitialize a context before a new test.
+
+*Note*: A BeforeEach method sould be static and without return.
+
+```java
+@BeforeEach
+void setup() {
+    origin.setNumber(6);
+    second.setNumber(2);
+}
+```
+
+#### 1.5.2.4. AfterAll
+
+The AfterAll annotation is the opposite from the BeforeAll one. It will be run after all tests in the current class.
+
+It is used mostly to clean up your environnement or your test database.
+
+```java
+@AfterAll
+static void shutdown() {
+    if (file != null)
+        file.close();
+}
+```
+
+#### 1.5.2.5. AfterEach
+
+The AfterEach annotation is the opposite from the BeforeEach one. It will be run after each test in the current class.
+
+It is used mostly to clean up your environnement or your test database after one test or to reinitialize it.
+
+```java
+@AfterEach
+static void clean() {
+    created.delete();
+}
+```
 
 ---
 
