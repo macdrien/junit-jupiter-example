@@ -4,31 +4,32 @@
 
 - [1. Example of JUnit Jupiter](#1-example-of-junit-jupiter)
   - [1.1. Table of contents](#11-table-of-contents)
-  - [1.2. Dependencies](#12-dependencies)
-    - [1.2.1. JUnit Jupiter Platform](#121-junit-jupiter-platform)
-    - [1.2.2. JUnit Jupiter API](#122-junit-jupiter-api)
-    - [1.2.3. JUnit Jupiter Vintage](#123-junit-jupiter-vintage)
-  - [1.3. Build plugins](#13-build-plugins)
-  - [1.4. Project classes](#14-project-classes)
-    - [1.4.1. Number](#141-number)
-      - [1.4.1.1. Methods](#1411-methods)
-        - [1.4.1.1.1. Add](#14111-add)
-        - [1.4.1.1.2. Subtract](#14112-subtract)
-        - [1.4.1.1.3. Multiply](#14113-multiply)
-        - [1.4.1.1.4. Divide](#14114-divide)
-  - [1.5. Tests](#15-tests)
-    - [1.5.1. Assertions methods](#151-assertions-methods)
-      - [1.5.1.1. assertEquals](#1511-assertequals)
-      - [1.5.1.2. assertTrue and assertFalse](#1512-asserttrue-and-assertfalse)
-      - [1.5.1.3. assertNull and assertNotNull](#1513-assertnull-and-assertnotnull)
-      - [1.5.1.4. assertThrows](#1514-assertthrows)
-    - [1.5.2. Annotations](#152-annotations)
-      - [1.5.2.1. Test](#1521-test)
-      - [1.5.2.2. BeforeAll](#1522-beforeall)
-      - [1.5.2.3. BeforeEach](#1523-beforeeach)
-      - [1.5.2.4. AfterAll](#1524-afterall)
-      - [1.5.2.5. AfterEach](#1525-aftereach)
-  - [1.6. External resources](#16-external-resources)
+  - [1.2. Requirements](#12-requirements)
+  - [1.3. Dependencies](#13-dependencies)
+    - [1.3.1. JUnit Jupiter Platform](#131-junit-jupiter-platform)
+    - [1.3.2. JUnit Jupiter API](#132-junit-jupiter-api)
+    - [1.3.3. JUnit Jupiter Vintage](#133-junit-jupiter-vintage)
+  - [1.4. Build plugins](#14-build-plugins)
+  - [1.5. Project classes](#15-project-classes)
+    - [1.5.1. Number](#151-number)
+      - [1.5.1.1. Methods](#1511-methods)
+        - [1.5.1.1.1. Add](#15111-add)
+        - [1.5.1.1.2. Subtract](#15112-subtract)
+        - [1.5.1.1.3. Multiply](#15113-multiply)
+        - [1.5.1.1.4. Divide](#15114-divide)
+  - [1.6. Tests](#16-tests)
+    - [1.6.1. Assertions methods](#161-assertions-methods)
+      - [1.6.1.1. assertEquals](#1611-assertequals)
+      - [1.6.1.2. assertTrue and assertFalse](#1612-asserttrue-and-assertfalse)
+      - [1.6.1.3. assertNull and assertNotNull](#1613-assertnull-and-assertnotnull)
+      - [1.6.1.4. assertThrows](#1614-assertthrows)
+    - [1.6.2. Annotations](#162-annotations)
+      - [1.6.2.1. Test](#1621-test)
+      - [1.6.2.2. BeforeAll](#1622-beforeall)
+      - [1.6.2.3. BeforeEach](#1623-beforeeach)
+      - [1.6.2.4. AfterAll](#1624-afterall)
+      - [1.6.2.5. AfterEach](#1625-aftereach)
+  - [1.7. External resources](#17-external-resources)
 
 This project is a project which helps me to pratice globally JUnit5 Jupiter.  
 In this project, I will develop some small classes like Number with some functions.
@@ -39,14 +40,20 @@ Here, I will use maven. So, let see the dependencies we need.
 
 ---
 
-## 1.2. Dependencies
+## 1.2. Requirements
+
+To use JUnit5, you must use a Java version **equals or geater** than 8.
+
+---
+
+## 1.3. Dependencies
 
 In the next dependencies, you will note that I restricted its scope to the test one.  
 That is because JUnit will just be used in the test one. So, we do not need to keep the dependency on the production scope.
 
 I use 2 JUnit dependencies:
 
-### 1.2.1. JUnit Jupiter Platform
+### 1.3.1. JUnit Jupiter Platform
 
 JUnit Jupiter Platform, which is used thanks the junit-jupiter-engine dependency, allows tests running.  
 It give the TestEngine API to. This API is used to create new test frameworks. These frameworks can be imported into the app and run by JUnit Jupiter Platform.
@@ -60,7 +67,7 @@ It give the TestEngine API to. This API is used to create new test frameworks. T
 </dependency>
 ```
 
-### 1.2.2. JUnit Jupiter API
+### 1.3.2. JUnit Jupiter API
 
 JUnit Jupiter API is the one which import methods and annotations to use in and on the test classes (@Test, assertions methods, ...).
 
@@ -73,14 +80,14 @@ JUnit Jupiter API is the one which import methods and annotations to use in and 
 </dependency>
 ```
 
-### 1.2.3. JUnit Jupiter Vintage
+### 1.3.3. JUnit Jupiter Vintage
 
 I did not use this dependency, but I want to mention it.  
 Jupiter is the 5*th* version of JUnit. But, you can "mix" the 3*rd* and 4*th* versions with the 5*th*. Jupiter Vintage import olds versions methods. That is usefull if you upgrade your JUnit version in some times.
 
 ---
 
-## 1.3. Build plugins
+## 1.4. Build plugins
 
 The following build plugins allows us to launch tests from maven.  
 We need them because surfire does not support JUnit5 natively.
@@ -104,18 +111,18 @@ With this plugin, you can run the written tests with the command `mvn test`.
 
 ---
 
-## 1.4. Project classes
+## 1.5. Project classes
 
-### 1.4.1. Number
+### 1.5.1. Number
 
 This class represents an integer. I implemented the four basic operators (+, -, * and /).  
 I set up the getters and setters too, a toString method and, finally, the equals method (which I will not test).
 
-#### 1.4.1.1. Methods
+#### 1.5.1.1. Methods
 
 This is the Number's methods with their behaviour:
 
-##### 1.4.1.1.1. Add
+##### 1.5.1.1.1. Add
 
 Add a given Number to the current Number.
 
@@ -127,7 +134,7 @@ Add() returns the current instance after the addition.
 
 The method can throw an IllegalArgumentException exception if toAdd is null.
 
-##### 1.4.1.1.2. Subtract
+##### 1.5.1.1.2. Subtract
 
 Subtract a given Number to the current Number.
 
@@ -139,7 +146,7 @@ The method returns the current instance after the subtraction.
 
 It can throw an IllegalArgumentException exception if toSubtract is null.
 
-##### 1.4.1.1.3. Multiply
+##### 1.5.1.1.3. Multiply
 
 Multiply a given Number to the current Number.
 
@@ -151,7 +158,7 @@ Multiply() returns the current instance after the multiplication.
 
 The method will throw an IllegalArgumentException exception if toMultiply is null.
 
-##### 1.4.1.1.4. Divide
+##### 1.5.1.1.4. Divide
 
 Divide the current Number by the given one.
 
@@ -165,11 +172,11 @@ Divide() can throw an IllegalArgumentException exception if divider is null or i
 
 ---
 
-## 1.5. Tests
+## 1.6. Tests
 
 This section will describes the JUnit5 tools (methods and annotations mainly) which I used in this project.
 
-### 1.5.1. Assertions methods
+### 1.6.1. Assertions methods
 
 Assertions methods are, with the [Test annotation](#1521-test-todo), the main tools we use in tests. That is why I begin with them.
 
@@ -185,7 +192,7 @@ In most of he following methods can take, optionnally, a last argument. This arg
 
 The main assertions methods I use daily are the following one:
 
-#### 1.5.1.1. assertEquals
+#### 1.6.1.1. assertEquals
 
 This assertion need two arguments. The first one is the result you expect. The second one is the result that you want to test.
 
@@ -197,7 +204,7 @@ assertEquals(expect, origin.add(second));
 
 This method will do `expect.equals(toTest)`. If this equals method is not implemented on the object you give, assertEquals will use the double equals operator (`==`) on the object references.
 
-#### 1.5.1.2. assertTrue and assertFalse
+#### 1.6.1.2. assertTrue and assertFalse
 
 This two methods need only one argument. This argument must be a boolean condition to test. The assertion will success if the condition is true for the first method, or if it is false for the second one.
 
@@ -208,7 +215,7 @@ assertTrue(5 + 5 == 8);  // Fail
 assertFalse(5 + 3 == 8); // Fail
 ```
 
-#### 1.5.1.3. assertNull and assertNotNull
+#### 1.6.1.3. assertNull and assertNotNull
 
 AssertNull and assertNotNull need one argument which is the variable or a method result to test.  
 The first one will success if the argument is null, the second one will success if the arguement is not null.
@@ -220,7 +227,7 @@ assertNull(5);        // Fail
 assertNotNull(null);  // Fail
 ```
 
-#### 1.5.1.4. assertThrows
+#### 1.6.1.4. assertThrows
 
 AssertThrows, as assertEquals, needs two arguments.  
 The first argument is the exception class you attempt to throw.  
@@ -235,9 +242,9 @@ assertThrows(IllegalArgumentException.class,
 
 Naturally, this method will success if the exception is thrown. It will fail in another case.
 
-### 1.5.2. Annotations
+### 1.6.2. Annotations
 
-#### 1.5.2.1. Test
+#### 1.6.2.1. Test
 
 This annotation is the most common. Placed on a function, it marks it as a test function.  
 When you run tests, JUnit5 will search all methods which have this annotation and run them.
@@ -254,7 +261,7 @@ void testAddWithNullArgument() {
 }
 ```
 
-#### 1.5.2.2. BeforeAll
+#### 1.6.2.2. BeforeAll
 
 BeforeAll must be placed on a method. The marked method will be run once before all other tests method in the current class.
 
@@ -271,7 +278,7 @@ static void init() {
 }
 ```
 
-#### 1.5.2.3. BeforeEach
+#### 1.6.2.3. BeforeEach
 
 As BeforeAll, this annotation will mark a method as being executed before tests in the current class. But here, the BeforeEach method will be run before each new test.
 
@@ -287,7 +294,7 @@ void setup() {
 }
 ```
 
-#### 1.5.2.4. AfterAll
+#### 1.6.2.4. AfterAll
 
 The AfterAll annotation is the opposite from the BeforeAll one. It will be run after all tests in the current class.
 
@@ -301,7 +308,7 @@ static void shutdown() {
 }
 ```
 
-#### 1.5.2.5. AfterEach
+#### 1.6.2.5. AfterEach
 
 The AfterEach annotation is the opposite from the BeforeEach one. It will be run after each test in the current class.
 
@@ -316,7 +323,7 @@ static void clean() {
 
 ---
 
-## 1.6. External resources
+## 1.7. External resources
 
 - [JUnit5 User Guide](https://junit.org/junit5/docs/5.3.0-M1/user-guide/index.html)
 - [Baeldungs tutorials](https://www.baeldung.com/junit)
