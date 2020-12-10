@@ -11,6 +11,11 @@
   - [1.3. Build plugins](#13-build-plugins)
   - [1.4. Project classes](#14-project-classes)
     - [1.4.1. Number](#141-number)
+      - [Methods](#methods)
+        - [Add](#add)
+        - [Subtract](#subtract)
+        - [Multiply](#multiply)
+        - [Divide](#divide)
   - [1.5. Tests](#15-tests)
   - [1.6. External resources](#16-external-resources)
 
@@ -94,6 +99,58 @@ With this plugin, you can run the written tests with the command `mvn test`.
 
 This class represents an integer. I implemented the four basic operators (+, -, * and /).  
 I set up the getters and setters too, a toString method and, finally, the equals method (which I will not test).
+
+#### Methods
+
+This is the Number's methods with their behaviour:
+
+##### Add
+
+Add a given Number to the current Number.
+
+The argument `toAdd` is the number to add. It must be not null.  
+If toAdd.number is null, the function will add 0 to the current one.  
+If this.number is null, the function will set it to toAdd.number.
+
+Add() returns the current instance after the addition.
+
+The method can throw an IllegalArgumentException exception if toAdd is null.
+
+##### Subtract
+
+Subtract a given Number to the current Number.
+
+The argument toSubtract is the number to subtract. It must be not null.  
+If toSubtract.number is null, the function will subtract 0 to the current one.  
+If this.number is null, the function will set it to -(toSubtract.number).
+
+The method returns the current instance after the subtraction.
+
+It can throw an IllegalArgumentException exception if toSubtract is null.
+
+##### Multiply
+
+Multiply a given Number to the current Number.
+
+The argument toMultiply is the Number to multiply.  
+If toMultiply.number is null, the function will multiply this.number by 1.  
+If this.number is null, the function will set it to toMultiply.number
+
+Multiply() returns the current instance after the multiplication.
+
+The method will throw an IllegalArgumentException exception if toMultiply is null.
+
+##### Divide
+
+Divide the current Number by the given one.
+
+The argument divider is the Number to use to divide the current one.  
+If divider.number is null, the function will divide this.number by 1.  
+If this.number is null, the function will set it to 1.
+
+The method returns the current instance after the division.
+
+Divide() can throw an IllegalArgumentException exception if divider is null or if divier.number is equals to 0 (impossible case).
 
 ---
 
