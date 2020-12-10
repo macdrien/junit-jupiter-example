@@ -11,11 +11,11 @@
   - [1.3. Build plugins](#13-build-plugins)
   - [1.4. Project classes](#14-project-classes)
     - [1.4.1. Number](#141-number)
-      - [Methods](#methods)
-        - [Add](#add)
-        - [Subtract](#subtract)
-        - [Multiply](#multiply)
-        - [Divide](#divide)
+      - [1.4.1.1. Methods](#1411-methods)
+        - [1.4.1.1.1. Add](#14111-add)
+        - [1.4.1.1.2. Subtract](#14112-subtract)
+        - [1.4.1.1.3. Multiply](#14113-multiply)
+        - [1.4.1.1.4. Divide](#14114-divide)
   - [1.5. Tests](#15-tests)
   - [1.6. External resources](#16-external-resources)
 
@@ -100,11 +100,11 @@ With this plugin, you can run the written tests with the command `mvn test`.
 This class represents an integer. I implemented the four basic operators (+, -, * and /).  
 I set up the getters and setters too, a toString method and, finally, the equals method (which I will not test).
 
-#### Methods
+#### 1.4.1.1. Methods
 
 This is the Number's methods with their behaviour:
 
-##### Add
+##### 1.4.1.1.1. Add
 
 Add a given Number to the current Number.
 
@@ -116,7 +116,7 @@ Add() returns the current instance after the addition.
 
 The method can throw an IllegalArgumentException exception if toAdd is null.
 
-##### Subtract
+##### 1.4.1.1.2. Subtract
 
 Subtract a given Number to the current Number.
 
@@ -128,7 +128,7 @@ The method returns the current instance after the subtraction.
 
 It can throw an IllegalArgumentException exception if toSubtract is null.
 
-##### Multiply
+##### 1.4.1.1.3. Multiply
 
 Multiply a given Number to the current Number.
 
@@ -140,7 +140,7 @@ Multiply() returns the current instance after the multiplication.
 
 The method will throw an IllegalArgumentException exception if toMultiply is null.
 
-##### Divide
+##### 1.4.1.1.4. Divide
 
 Divide the current Number by the given one.
 
